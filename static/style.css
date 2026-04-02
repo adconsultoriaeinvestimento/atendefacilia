@@ -356,51 +356,42 @@ h1 span,
   }
 }
 
-@media (max-width: 480px) {
-  body {
-    overflow-x: hidden;
-  }
-
-  .page {
-    padding: 14px;
-  }
-
-  .hero {
-    padding: 8px 4px;
-  }
-
+@media (max-width: 768px) {
   .consultora-foto {
     width: 150px;
-    height: 150px;
-    border-radius: 16px;
+    height: 220px;
   }
 
-  .consultora-info h3 {
-    font-size: 17px;
-  }
-
-  .consultora-info p {
-    font-size: 14px;
-    max-width: 260px;
+  h1 {
+    font-size: clamp(24px, 6vw, 34px);
+    max-width: 100%;
   }
 
   .hero-description,
   .sub {
     font-size: 15px;
-    line-height: 1.55;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .consultora-foto {
+    width: 130px;
+    height: 190px;
   }
 
-  .composer {
-    padding: 12px;
+  h1 {
+    font-size: 22px;
+    line-height: 1.12;
   }
 
-  .composer input {
-    padding: 13px 16px;
+  .consultora-info p {
     font-size: 14px;
   }
 
-  .composer button {
-    padding: 0 16px;
+  .hero-description,
+  .sub {
     font-size: 14px;
+    line-height: 1.6;
   }
 }
