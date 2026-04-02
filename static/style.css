@@ -60,10 +60,12 @@ body {
   margin-bottom: 20px;
 }
 
-.consultora-foto {
+
+  .consultora-foto {
   width: 220px;
   height: 220px;
-  object-fit: cover;
+  object-fit: contain;
+  background: #fff;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
 }
@@ -115,14 +117,16 @@ h1 span,
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
   margin-top: 24px;
+  align-items: stretch;
 }
 
 .info-card {
-  background: var(--card);
+   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 18px;
   padding: 18px;
   box-shadow: var(--shadow);
+  min-width: 0;
 }
 
 .info-card strong {
@@ -130,12 +134,15 @@ h1 span,
   color: var(--primary);
   margin-bottom: 8px;
   font-size: 15px;
-}
 
+}
 .info-card span {
   font-size: 14px;
   color: var(--muted);
   line-height: 1.5;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+
 }
 
 /* CHAT */
