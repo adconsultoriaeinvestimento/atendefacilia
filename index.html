@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consultoria Thayana Vilaça | Chatbot</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+
+      <div class="consultora-box">
+        <img src="static/consultora.png">
+          alt="Foto da consultora Thayana Vilaça"
+          class="consultora-foto">
+
+        <div class="consultora-info">
+          <h3>Thayana Vilaça</h3>
+          <p>
+            Consultora especializada em atendimento, simulação e agendamento via WhatsApp.
+          </p>
+        </div>
+      </div>
+
+      <h1>
+        Simule seu crédito e <span>agende sua reunião</span> no WhatsApp
+      </h1>
+
+      <p class="hero-description">
+        Atendimento consultivo para quem deseja conquistar imóvel, veículo ou investir com planejamento.
+        Tire dúvidas, receba uma simulação personalizada e avance para um agendamento rápido e estratégico.
+      </p>
+
+      <div class="cards">
+        <div class="info-card">
+          <strong>Agenda</strong>
+          <span>(81) 92002-3267<br>Segunda a sexta: 9h, 10h, 11h, 14h, 16h e 17h30</span>
+        </div>
+        <div class="info-card">
+          <strong>E-mail</strong>
+          <span>consultoriathayanavilaca@gmail.com</span>
+        </div>
+        <div class="info-card">
+          <strong>Objetivo</strong>
+          <span>Qualificar, apresentar a consultoria e agendar reunião até o fechamento.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="chat-shell">
+      <header class="chat-header">
+        <img src="{{ url_for('static/style.logo.png') }}" class="logo" alt="Logo AD Consultoria e Investimento">
+        <div>
+          <h2>Consultoria Thayana Vilaça</h2>
+          <p>Atendimento, agendamento e fechamento via WhatsApp</p>
+        </div>
+      </header>
+
+      <div id="messages" class="messages"></div>
+
+      <form id="composer" class="composer">
+        <input id="textInput" type="text" placeholder="Digite sua resposta..." autocomplete="off" />
+        <button type="submit">Enviar</button>
+      </form>
+
+      <div class="footer-note">Projeto demonstrativo em Python + HTML + CSS</div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
