@@ -23,13 +23,21 @@ body {
   color: var(--text);
   min-height: 100vh;
 }
-.logo {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-  border: 2px solid rgba(255, 255, 255, 0.25);
+.consultora-box{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.consultora-foto{
+  width:220px;      /* tamanho ideal */
+  height:220px;
+  object-fit:cover;
+  border-radius:16px; /* ou 50% se quiser circular */
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+
 }
 
 .page {
