@@ -23,22 +23,6 @@ body {
   color: var(--text);
   min-height: 100vh;
 }
-.consultora-box{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  margin-bottom:20px;
-}
-
-.consultora-foto{
-  width:220px;      /* tamanho ideal */
-  height:220px;
-  object-fit:cover;
-  border-radius:16px; /* ou 50% se quiser circular */
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
-
-}
 
 .page {
   max-width: 1100px;
@@ -67,16 +51,56 @@ body {
   font-weight: 700;
 }
 
+/* BLOCO CONSULTORA */
+.consultora-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.consultora-foto {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
+}
+
+.consultora-info {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.consultora-info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--text);
+}
+
+.consultora-info p {
+  margin-top: 6px;
+  color: #555;
+  max-width: 320px;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+/* TÍTULOS E TEXTO */
 h1 {
   font-size: clamp(32px, 5vw, 54px);
   line-height: 1.05;
   margin: 18px 0 14px;
+  max-width: 680px;
 }
 
+h1 span,
 .highlight {
   color: var(--primary);
 }
 
+.hero-description,
 .sub {
   font-size: 18px;
   line-height: 1.65;
@@ -85,6 +109,7 @@ h1 {
   margin-bottom: 28px;
 }
 
+/* CARDS INFORMATIVOS */
 .cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -113,6 +138,7 @@ h1 {
   line-height: 1.5;
 }
 
+/* CHAT */
 .chat-shell {
   background: var(--card);
   border-radius: 28px;
@@ -134,17 +160,19 @@ h1 {
   align-items: center;
 }
 
+.logo,
 .avatar {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.18);
   display: grid;
   place-items: center;
   font-weight: 700;
   font-size: 18px;
-  border: 1px solid rgba(255,255,255,0.22);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   flex-shrink: 0;
+  object-fit: cover;
 }
 
 .chat-header h2 {
@@ -219,6 +247,11 @@ h1 {
   transform: translateY(-1px);
 }
 
+.choice-btn:active {
+  transform: scale(0.97);
+}
+
+/* CAMPO DE ENVIO */
 .composer {
   border-top: 1px solid var(--line);
   padding: 14px;
@@ -231,7 +264,7 @@ h1 {
   flex: 1;
   border: 1px solid var(--line);
   border-radius: 999px;
-  padding: 14px 16px;
+  padding: 14px 18px;
   font-size: 15px;
   outline: none;
 }
@@ -264,11 +297,28 @@ h1 {
   background: white;
 }
 
+/* RESPONSIVO */
 @media (max-width: 960px) {
   .page {
     grid-template-columns: 1fr;
     gap: 18px;
     padding: 16px;
+  }
+
+  .hero {
+    text-align: center;
+  }
+
+  .consultora-box {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-description,
+  .sub,
+  h1 {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .cards {
@@ -279,8 +329,74 @@ h1 {
     min-height: 76vh;
     max-height: none;
   }
+}
 
-input{
-  border-radius:25px;
-  padding:14px 18px;
+@media (max-width: 768px) {
+  .consultora-foto {
+    width: 180px;
+    height: 180px;
+  }
+
+  .consultora-info p {
+    max-width: 280px;
+    font-size: 14px;
+  }
+
+  .hero-description,
+  .sub {
+    font-size: 16px;
+  }
+
+  .chat-shell {
+    border-radius: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .page {
+    padding: 14px;
+  }
+
+  .hero {
+    padding: 8px 4px;
+  }
+
+  .consultora-foto {
+    width: 150px;
+    height: 150px;
+    border-radius: 16px;
+  }
+
+  .consultora-info h3 {
+    font-size: 17px;
+  }
+
+  .consultora-info p {
+    font-size: 14px;
+    max-width: 260px;
+  }
+
+  .hero-description,
+  .sub {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .composer {
+    padding: 12px;
+  }
+
+  .composer input {
+    padding: 13px 16px;
+    font-size: 14px;
+  }
+
+  .composer button {
+    padding: 0 16px;
+    font-size: 14px;
+  }
 }
