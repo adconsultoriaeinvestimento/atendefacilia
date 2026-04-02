@@ -37,19 +37,7 @@ body {
 
 .hero {
   padding: 12px 8px;
-
-  h1 {
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-description,
-.sub {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-
 }
 
 .badge {
@@ -71,10 +59,9 @@ body {
   align-items: center;
   text-align: center;
   margin-bottom: 24px;
-
 }
 
-  .consultora-foto {
+.consultora-foto {
   width: 170px;
   height: 250px;
   object-fit: cover;
@@ -84,49 +71,6 @@ body {
   background: #fff;
 }
 
-.consultora-info {
-  margin-top: 12px;
-  text-align: center;
-}
-
-.consultora-info h3 {
-  margin: 0;
-  font-size: 18px;
-  color: var(--text);
-}
-
-.consultora-info p {
-  margin-top: 6px;
-  color: #555;
-  max-width: 320px;
-  line-height: 1.5;
-  font-size: 15px;
-}
-
-/* TÍTULOS E TEXTO */
-h1 {
-  
-  font-size: clamp(28px, 4.2vw, 42px);
-  line-height: 1.08;
-  margin: 18px 0 16px;
-  max-width: 620px;
-}
-
-h1 span,
-.highlight {
-  color: var(--primary);
-}
-
-  .hero-description,
-  .sub {
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--muted);
-  max-width: 560px;
-  margin: 0 0 26px;
-}
-
-/* CARDS INFORMATIVOS */
 .consultora-info {
   margin-top: 12px;
   text-align: center;
@@ -144,15 +88,64 @@ h1 span,
   color: #555;
   line-height: 1.5;
   font-size: 15px;
-
 }
+
+/* TÍTULOS E TEXTO */
+h1 {
+  font-size: clamp(28px, 4.2vw, 42px);
+  line-height: 1.08;
+  margin: 18px auto 16px;
+  max-width: 620px;
+  text-align: center;
+}
+
+h1 span,
+.highlight {
+  color: var(--primary);
+}
+
+.hero-description,
+.sub {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 560px;
+  margin: 0 auto 26px;
+  text-align: center;
+}
+
+/* CARDS INFORMATIVOS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+  align-items: stretch;
+}
+
+.info-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+  min-width: 0;
+  text-align: left;
+}
+
+.info-card strong {
+  display: block;
+  color: var(--primary);
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
 .info-card span {
   font-size: 14px;
   color: var(--muted);
   line-height: 1.5;
   word-break: break-word;
   overflow-wrap: anywhere;
-
 }
 
 /* CHAT */
@@ -322,22 +315,6 @@ h1 span,
     padding: 16px;
   }
 
-  .hero {
-    text-align: center;
-  }
-
-  .consultora-box {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-description,
-  .sub,
-  h1 {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   .cards {
     grid-template-columns: 1fr;
   }
@@ -345,27 +322,6 @@ h1 span,
   .chat-shell {
     min-height: 76vh;
     max-height: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .consultora-foto {
-    width: 180px;
-    height: 180px;
-  }
-
-  .consultora-info p {
-    max-width: 280px;
-    font-size: 14px;
-  }
-
-  .hero-description,
-  .sub {
-    font-size: 16px;
-  }
-
-  .chat-shell {
-    border-radius: 22px;
   }
 }
 
@@ -384,6 +340,15 @@ h1 span,
   .sub {
     font-size: 15px;
     max-width: 100%;
+  }
+
+  .consultora-info p {
+    max-width: 280px;
+    font-size: 14px;
+  }
+
+  .chat-shell {
+    border-radius: 22px;
   }
 }
 
