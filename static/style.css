@@ -271,4 +271,8 @@ h1 {
     min-height: 76vh;
     max-height: none;
   }
+
+input{
+  border-radius:25px;
+  padding:14px 18px;
 }
