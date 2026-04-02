@@ -7,6 +7,7 @@ const flow = {
       { label: "📈 Investimento", next: "investimento" }
     ]
   },
+
   imovel: {
     text: "Perfeito! O consórcio de imóvel é ideal para comprar, construir, reformar ou investir.\n\nQual faixa de crédito você busca?",
     options: [
@@ -16,6 +17,7 @@ const flow = {
       { label: "Ainda não sei", next: "parcela" }
     ]
   },
+
   veiculo: {
     text: "Ótima escolha! Com planejamento, você pode conquistar seu veículo sem juros.\n\nQual faixa de crédito você busca?",
     options: [
@@ -25,6 +27,7 @@ const flow = {
       { label: "Ainda não sei", next: "parcela" }
     ]
   },
+
   investimento: {
     text: "Excelente decisão. Muita gente usa consórcio para construir patrimônio com estratégia.\n\nQual seu objetivo principal?",
     options: [
@@ -33,10 +36,12 @@ const flow = {
       { label: "Comprar para alugar", next: "parcela" }
     ]
   },
+
   parcela: {
     text: "Entendi. Qual valor de parcela ficaria confortável pra você?",
     inputNext: "tempo"
   },
+
   tempo: {
     text: "Você pretende começar quando?",
     options: [
@@ -45,6 +50,7 @@ const flow = {
       { label: "Só pesquisando", next: "decisor" }
     ]
   },
+
   decisor: {
     text: "Hoje tem mais alguém que participa dessa decisão com você?",
     options: [
@@ -52,6 +58,7 @@ const flow = {
       { label: "Não", next: "transicao" }
     ]
   },
+
   transicao: {
     text: "Perfeito, entendi seu perfil.\n\nEnquanto muitos adiam decisões e perdem oportunidades, quem utiliza o consórcio transforma sonhos em metas concretas, com parcelas acessíveis e estratégia financeira.\n\nCom base no que você me falou, consigo te direcionar para um atendimento especializado. Vamos agendar?",
     options: [
@@ -59,10 +66,12 @@ const flow = {
       { label: "Quero mais informações", next: "info" }
     ]
   },
+
   info: {
     text: "Sem problema. Nosso atendimento é personalizado e feito para mostrar as melhores oportunidades de acordo com seu perfil.\n\nAgora escolha um horário disponível para falar com a consultoria.",
     next: "agenda"
   },
+
   agenda: {
     text: "Temos os seguintes horários de segunda a sexta. Qual você prefere?",
     options: [
@@ -74,6 +83,7 @@ const flow = {
       { label: "17h30", next: "confirmacao" }
     ]
   },
+
   confirmacao: {
     text: "Perfeito! Vou reservar esse horário pra você.\n\nEsse atendimento é exclusivo e personalizado. Você confirma sua presença no horário combinado?",
     options: [
@@ -81,8 +91,16 @@ const flow = {
       { label: "Quero outro horário", next: "agenda" }
     ]
   },
+
   fechamento: {
-    text: "Agendamento confirmado ✅\n\nConsultoria Thayana Vilaça\nAgenda: (81) 92002-3267\nE-mail: consultoriathayanavilaca@gmail.com\n\nNosso especialista vai preparar uma análise personalizada com base no seu perfil. Obrigado pelo contato!"
+    text: "Agendamento confirmado ✅\n\nClique no botão abaixo para falar direto comigo no WhatsApp e finalizar seu atendimento 👇",
+    options: [
+      { label: "📲 Falar no WhatsApp", next: "whatsapp" }
+    ]
+  },
+
+  whatsapp: {
+    text: "Abrindo seu atendimento..."
   }
 };
 
@@ -90,6 +108,14 @@ const messages = document.getElementById("messages");
 const composer = document.getElementById("composer");
 const input = document.getElementById("textInput");
 let currentStep = "start";
+
+function abrirWhatsApp() {
+  const numero = "5581920023267";
+  const mensagem = encodeURIComponent(
+    "Olá! Acabei de fazer o agendamento pelo site e quero continuar meu atendimento."
+  );
+  window.open(`https://wa.me/${numero}?text=${mensagem}`, "_blank");
+}
 
 function addBubble(text, type = "bot") {
   const bubble = document.createElement("div");
@@ -101,15 +127,32 @@ function addBubble(text, type = "bot") {
 
 function addChoices(options) {
   if (!options || !options.length) return;
+
   const wrap = document.createElement("div");
   wrap.className = "choices";
 
-  options.forEach(option => {
+  options.forEach((option) => {
     const btn = document.createElement("button");
     btn.className = "choice-btn";
     btn.type = "button";
     btn.textContent = option.label;
-    btn.onclick = () => handleAnswer(option.label, option.next);
+
+    btn.onclick = () => {
+      clearChoices();
+
+      if (option.next === "whatsapp") {
+        addBubble(option.label, "user");
+        setTimeout(() => {
+          goToStep("whatsapp");
+          setTimeout(() => {
+            abrirWhatsApp();
+          }, 400);
+        }, 250);
+      } else {
+        handleAnswer(option.label, option.next);
+      }
+    };
+
     wrap.appendChild(btn);
   });
 
@@ -118,7 +161,7 @@ function addChoices(options) {
 }
 
 function clearChoices() {
-  document.querySelectorAll(".choices").forEach(el => el.remove());
+  document.querySelectorAll(".choices").forEach((el) => el.remove());
 }
 
 function goToStep(stepKey) {
