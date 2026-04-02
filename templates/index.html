@@ -1,12 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Consultoria Thayana Vilaça | Chatbot</title>
- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <main class="page">
@@ -36,7 +34,7 @@
 
     <section class="chat-shell">
       <header class="chat-header">
-        <div class="avatar">TV</div>
+        <img src="{{ url_for('static', filename='logo.png') }}" class="logo" alt="Logo AD Consultoria e Investimento">
         <div>
           <h2>Consultoria Thayana Vilaça</h2>
           <p>Atendimento, agendamento e fechamento via WhatsApp</p>
@@ -55,6 +53,5 @@
   </main>
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>
-  
 </body>
 </html>
