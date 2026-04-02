@@ -60,14 +60,14 @@ body {
   margin-bottom: 20px;
 }
 
-
   .consultora-foto {
-  width: 220px;
-  height: 220px;
-  object-fit: contain;
-  background: #fff;
+  width: 170px;
+  height: 250px;
+  object-fit: cover;
+  object-position: center top;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
+  background: #fff;
 }
 
 .consultora-info {
