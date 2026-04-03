@@ -196,16 +196,14 @@ h1 span,
 
 .chat-header h2 {
   margin: 0;
-  font-size: 18px;
+  font-size: 19px;
 }
 
-.chat-header {
-  background: linear-gradient(135deg, var(--primary), #e11d48);
-  color: white;
-  padding: 20px 20px 18px;
-  display: flex;
-  gap: 16px;
-  align-items: center;
+.chat-header p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  opacity: 0.9;
+
 }
 
 .messages {
