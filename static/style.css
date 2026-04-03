@@ -187,7 +187,6 @@ h1 span,
   width: 80px;   /* menor que o avatar pra dar respiro */
   height: 80px;
   object-fit: contain;
-}
 
 }
 
@@ -328,7 +327,7 @@ h1 span,
   .chat-shell {
     min-height: 76vh;
     max-height: none;
-  }
+  
 }
 
 @media (max-width: 768px) {
