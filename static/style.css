@@ -170,13 +170,26 @@ h1 span,
   align-items: center;
 }
 
-.logo {
-  width: 90px;
-  height: 90px;
-  object-fit: contain;
-  background: #fff;
+.avatar {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  padding: 8px;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  border: none;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: block;
+  object-fit: contain;
+  padding: 2px;
+  flex-shrink: 0;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 
 }
@@ -186,11 +199,13 @@ h1 span,
   font-size: 18px;
 }
 
-.chat-header p {
-  margin: 4px 0 0;
-  font-size: 13px;
-  opacity: 0.92;
-  line-height: 1.45;
+.chat-header {
+  background: linear-gradient(135deg, var(--primary), #e11d48);
+  color: white;
+  padding: 20px 20px 18px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
 }
 
 .messages {
