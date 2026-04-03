@@ -184,6 +184,9 @@ h1 span,
   flex-shrink: 0;
   object-fit: cover;
   padding: 6px; /* dá respiro pra logo */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  
+
 }
 
 .chat-header h2 {
