@@ -172,8 +172,8 @@ h1 span,
 
 .logo,
 .avatar {
-  width: 52px;
-  height: 52px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.18);
   display: grid;
