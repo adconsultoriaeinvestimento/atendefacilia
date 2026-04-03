@@ -181,16 +181,17 @@ h1 span,
   flex-shrink: 0;
 }
 
-.logo {
+
+  .logo {
   width: 88px;
   height: 88px;
   border-radius: 50%;
-  background: #ffffff;
-  display: block;
+  background: #fff;
   object-fit: contain;
-  padding: 2px;
-  flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 4px;
+  box-shadow: 
+    0 4px 12px rgba(0,0,0,0.15),
+    0 0 0 2px rgba(255,255,255,0.4);
 
 }
 
