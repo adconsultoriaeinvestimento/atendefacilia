@@ -184,8 +184,8 @@ h1 span,
 }
 
 .logo {
-  width: 70px;   /* menor que o avatar pra dar respiro */
-  height: 70px;
+  width: 90px;   /* menor que o avatar pra dar respiro */
+  height: 90px;
   object-fit: contain;
 
 }
