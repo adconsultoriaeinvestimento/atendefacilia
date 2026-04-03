@@ -109,11 +109,57 @@ const composer = document.getElementById("composer");
 const input = document.getElementById("textInput");
 let currentStep = "start";
 
+/* Armazena os dados do lead */
+const leadData = {
+  interesse: "",
+  faixaCredito: "",
+  parcelaIdeal: "",
+  quandoPretende: "",
+  decisor: "",
+  querAgendar: "",
+  horario: "",
+  confirmacao: ""
+};
+
+function salvarResposta(step, answer) {
+  if (step === "start") {
+    leadData.interesse = answer;
+  } else if (step === "imovel" || step === "veiculo") {
+    leadData.faixaCredito = answer;
+  } else if (step === "investimento") {
+    leadData.faixaCredito = answer;
+  } else if (step === "parcela") {
+    leadData.parcelaIdeal = answer;
+  } else if (step === "tempo") {
+    leadData.quandoPretende = answer;
+  } else if (step === "decisor") {
+    leadData.decisor = answer;
+  } else if (step === "transicao") {
+    leadData.querAgendar = answer;
+  } else if (step === "agenda") {
+    leadData.horario = answer;
+  } else if (step === "confirmacao") {
+    leadData.confirmacao = answer;
+  }
+}
+
+function montarMensagemWhatsApp() {
+  return `Olá! Acabei de fazer o agendamento pelo site e quero continuar meu atendimento.
+
+*Resumo do lead:*
+• Interesse: ${leadData.interesse || "Não informado"}
+• Faixa de crédito / objetivo: ${leadData.faixaCredito || "Não informado"}
+• Parcela confortável: ${leadData.parcelaIdeal || "Não informado"}
+• Pretende começar: ${leadData.quandoPretende || "Não informado"}
+• Participa da decisão: ${leadData.decisor || "Não informado"}
+• Desejo de agendamento: ${leadData.querAgendar || "Não informado"}
+• Horário escolhido: ${leadData.horario || "Não informado"}
+• Confirmação final: ${leadData.confirmacao || "Não informado"}`;
+}
+
 function abrirWhatsApp() {
   const numero = "5581920023267";
-  const mensagem = encodeURIComponent(
-    "Olá! Acabei de fazer o agendamento pelo site e quero continuar meu atendimento."
-  );
+  const mensagem = encodeURIComponent(montarMensagemWhatsApp());
   window.open(`https://wa.me/${numero}?text=${mensagem}`, "_blank");
 }
 
@@ -181,6 +227,10 @@ function goToStep(stepKey) {
 
 function handleAnswer(answer, next) {
   clearChoices();
+
+  /* salva a resposta antes de mudar de etapa */
+  salvarResposta(currentStep, answer);
+
   addBubble(answer, "user");
 
   if (next) {
@@ -198,6 +248,7 @@ composer.addEventListener("submit", function (event) {
   event.preventDefault();
   const value = input.value.trim();
   if (!value) return;
+
   handleAnswer(value, null);
   input.value = "";
 });
